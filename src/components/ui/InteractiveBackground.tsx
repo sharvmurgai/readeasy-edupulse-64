@@ -51,7 +51,7 @@ const InteractiveBackground = () => {
           baseSize,
           opacity: baseOpacity,
           baseOpacity,
-          color: i % 3 === 0 ? '#7C3AED' : i % 3 === 1 ? '#A855F7' : '#C084FC',
+          color: i % 3 === 0 ? 'hsl(232, 63%, 66%)' : i % 3 === 1 ? 'hsl(232, 63%, 58%)' : 'hsl(232, 40%, 75%)',
           pulse: Math.random() * Math.PI * 2,
           pulseSpeed: Math.random() * 0.02 + 0.01,
           trail: []
@@ -149,7 +149,7 @@ const InteractiveBackground = () => {
           if (distance < 120) {
             ctx.save();
             ctx.globalAlpha = (120 - distance) / 120 * 0.2;
-            ctx.strokeStyle = '#7C3AED';
+            ctx.strokeStyle = 'hsl(232, 63%, 66%)';
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
@@ -165,7 +165,7 @@ const InteractiveBackground = () => {
       clickEffectsRef.current.forEach((effect, index) => {
         ctx.save();
         ctx.globalAlpha = effect.opacity;
-        ctx.strokeStyle = '#7C3AED';
+        ctx.strokeStyle = 'hsl(232, 63%, 66%)';
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(effect.x, effect.y, effect.radius, 0, Math.PI * 2);

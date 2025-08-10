@@ -36,13 +36,13 @@ const FloatingShapes = () => {
       {/* Floating geometric shapes */}
       <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-brand/5 rounded-full blur-xl animate-pulse" 
            style={{ animationDuration: '4s' }} />
-      <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-purple-300/10 rounded-lg blur-lg animate-pulse" 
+      <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-brand/8 rounded-lg blur-lg animate-pulse" 
            style={{ animationDuration: '6s', animationDelay: '2s' }} />
-      <div className="absolute top-1/2 left-1/6 w-16 h-16 bg-brand/8 rounded-full blur-md animate-pulse" 
+      <div className="absolute top-1/2 left-1/6 w-16 h-16 bg-brand/6 rounded-full blur-md animate-pulse" 
            style={{ animationDuration: '3s', animationDelay: '1s' }} />
-      <div className="absolute bottom-1/4 left-3/4 w-20 h-20 bg-purple-200/8 rounded-xl blur-lg animate-pulse" 
+      <div className="absolute bottom-1/4 left-3/4 w-20 h-20 bg-brand/4 rounded-xl blur-lg animate-pulse" 
            style={{ animationDuration: '5s', animationDelay: '3s' }} />
-      <div className="absolute top-1/6 right-1/3 w-28 h-28 bg-brand/6 rounded-full blur-2xl animate-pulse" 
+      <div className="absolute top-1/6 right-1/3 w-28 h-28 bg-brand/7 rounded-full blur-2xl animate-pulse" 
            style={{ animationDuration: '7s' }} />
     </div>
   );
