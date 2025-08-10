@@ -151,8 +151,8 @@ const Login = () => {
       <div className="flex-1 bg-gradient-cta relative flex items-center justify-center p-8">
         <div className="text-center max-w-2xl w-full">
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold text-white mb-4">Try ReadEasy</h2>
-            <p className="text-white/80 text-lg">
+            <h2 className="text-2xl font-semibold text-foreground mb-4">Try ReadEasy</h2>
+            <p className="text-muted-foreground text-lg">
               Watch how complex text transforms into simple, understandable language
             </p>
           </div>
