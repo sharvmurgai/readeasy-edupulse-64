@@ -3,7 +3,6 @@ import { useToast } from "@/hooks/use-toast";
 import { BookOpen, Sparkles, Users } from "lucide-react";
 import Reveal from "./Reveal";
 import AuthButtons from "../auth/AuthButtons";
-import readEasyLogo from "@/assets/readeasy-logo.png";
 
 const Hero = () => {
   const { toast } = useToast();
@@ -21,7 +20,7 @@ const Hero = () => {
       <div className="container py-20 md:py-28">
         <Reveal className="text-center max-w-4xl mx-auto">
           <div className="mb-8 flex justify-center">
-            <img src={readEasyLogo} alt="ReadEasy" className="h-20 w-20" />
+            <img src="/lovable-uploads/8c2ba20e-e28d-472e-aa5a-e38d3679dd37.png" alt="ReadEasy" className="h-20 w-20" />
           </div>
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
             Make complex text <span className="text-brand">easy</span>
