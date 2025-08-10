@@ -49,11 +49,11 @@ const AnimatedTextInput = () => {
         value={displayText}
         readOnly
         placeholder="Type your text here..."
-        className="h-32 p-4 text-base leading-relaxed resize-none bg-white/10 backdrop-blur-sm border-white/20 text-white placeholder:text-white/60 focus:border-white/40 focus:ring-white/20"
+        className="h-32 p-4 text-base leading-relaxed resize-none bg-white/10 backdrop-blur-sm border-white/20 text-foreground placeholder:text-muted-foreground focus:border-white/40 focus:ring-white/20"
       />
-      <div className="flex items-center mt-4 text-sm text-white/60">
+      <div className="flex items-center mt-4 text-sm text-muted-foreground">
         <span>Ask ReadEasy to simplify this text</span>
-        <div className="w-2 h-2 bg-white/60 rounded-full ml-2 animate-pulse" />
+        <div className="w-2 h-2 bg-muted-foreground rounded-full ml-2 animate-pulse" />
       </div>
     </div>
   );
