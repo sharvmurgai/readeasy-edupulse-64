@@ -149,7 +149,7 @@ const Dashboard = () => {
                           onChange={handleFileChange}
                           className="hidden"
                         />
-                        <p className="text-xs text-muted-foreground mt-2">Supports: JPG, PNG, GIF</p>
+                        <p className="text-xs text-muted-foreground mt-2">Supports: JPG, PNG</p>
                       </div>
                     </div>
                   </div>
