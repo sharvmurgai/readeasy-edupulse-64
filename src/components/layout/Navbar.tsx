@@ -1,11 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Home, User, Info, LayoutDashboard, LogIn, UserPlus } from "lucide-react";
+import { Home, User, Info, LayoutDashboard, LogIn, UserPlus, MessageSquare, FileText, Settings, LogOut } from "lucide-react";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useState } from "react";
 
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Mock auth state - replace with real auth
+  const [user] = useState({ name: "John Doe", email: "john@example.com", avatar: "" });
 
   const navItems = [
     { path: "/", label: "Home", icon: Home },
@@ -51,20 +63,81 @@ const Navbar = () => {
         {/* Right side - Auth & Theme */}
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <div className="hidden md:flex items-center gap-1">
-            {authItems.map(({ path, label, icon: Icon }) => (
-              <Button
-                key={path}
-                variant={isActive(path) ? "default" : "outline"}
-                size="sm"
-                onClick={() => navigate(path)}
-                className="gap-2"
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </Button>
-            ))}
-          </div>
+          
+          {isLoggedIn ? (
+            /* User Profile Dropdown */
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="relative h-9 w-9 rounded-full">
+                  <Avatar className="h-9 w-9">
+                    <AvatarImage src={user.avatar} alt={user.name} />
+                    <AvatarFallback className="bg-primary/10">
+                      {user.name.split(' ').map(n => n[0]).join('')}
+                    </AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-80" align="end" forceMount>
+                <DropdownMenuLabel className="font-normal">
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-sm font-medium leading-none">{user.name}</p>
+                    <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                
+                {/* Feedback Section */}
+                <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider">
+                  My Activity
+                </DropdownMenuLabel>
+                <DropdownMenuItem className="cursor-pointer">
+                  <MessageSquare className="mr-2 h-4 w-4" />
+                  <div className="flex flex-col">
+                    <span>My Feedback</span>
+                    <span className="text-xs text-muted-foreground">View submitted feedback</span>
+                  </div>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <FileText className="mr-2 h-4 w-4" />
+                  <div className="flex flex-col">
+                    <span>My Requests</span>
+                    <span className="text-xs text-muted-foreground">Track your requests</span>
+                  </div>
+                </DropdownMenuItem>
+                
+                <DropdownMenuSeparator />
+                
+                {/* Settings & Logout */}
+                <DropdownMenuItem className="cursor-pointer">
+                  <Settings className="mr-2 h-4 w-4" />
+                  Settings
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="cursor-pointer text-destructive focus:text-destructive"
+                  onClick={() => setIsLoggedIn(false)}
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            /* Auth Buttons for non-logged in users */
+            <div className="hidden md:flex items-center gap-1">
+              {authItems.map(({ path, label, icon: Icon }) => (
+                <Button
+                  key={path}
+                  variant={isActive(path) ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => navigate(path)}
+                  className="gap-2"
+                >
+                  <Icon className="h-4 w-4" />
+                  {label}
+                </Button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
