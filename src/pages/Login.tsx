@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { signInWithGoogle, signIn } from "@/lib/supabase";
 import { Link } from "react-router-dom";
 import AnimatedTextInput from "@/components/ui/AnimatedTextInput";
+import Navbar from "@/components/layout/Navbar";
 
 const Login = () => {
   const { toast } = useToast();
@@ -64,7 +65,9 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen">
+      <Navbar />
+      <div className="flex">
       {/* Left side - Login form */}
       <div className="flex-1 flex items-center justify-center p-8 bg-background">
         <div className="w-full max-w-md space-y-6">
@@ -199,6 +202,7 @@ const Login = () => {
           </div>
           <AnimatedTextInput />
         </div>
+      </div>
       </div>
     </div>
   );

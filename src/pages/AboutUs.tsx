@@ -1,14 +1,14 @@
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Reveal from "@/components/landing/Reveal";
 import { Users, Target, Lightbulb, Award } from "lucide-react";
+import Navbar from "@/components/layout/Navbar";
 
 const AboutUs = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Navbar />
       
       <main className="pt-20">
         {/* Hero Section */}

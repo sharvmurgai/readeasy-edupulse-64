@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Upload } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import Header from "@/components/layout/Header";
+import Navbar from "@/components/layout/Navbar";
 
 const Dashboard = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +53,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
-      <Header />
+      <Navbar />
       
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-2xl mx-auto">
