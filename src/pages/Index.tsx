@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/landing/Hero";
 import FeatureGrid from "@/components/landing/FeatureGrid";
@@ -16,7 +16,7 @@ const Index = () => {
       <InteractiveBackground />
       <FloatingShapes />
       <div className="relative z-10">
-        <Header />
+        <Navbar />
         <main>
           <Hero />
           <FeatureGrid />
