@@ -90,7 +90,7 @@ const Signup = () => {
         <div className="w-full max-w-md space-y-6">
           {/* Logo */}
           <div className="flex items-center gap-2 mb-8">
-            <img src="/lovable-uploads/8c2ba20e-e28d-472e-aa5a-e38d3679dd37.png" alt="ReadEasy" className="h-12 w-12" />
+            <img src="/lovable-uploads/8233bf9a-6f37-4969-b726-46839411f587.png" alt="ReadEasy" className="h-12 w-12" />
           </div>
 
           {/* Title */}
