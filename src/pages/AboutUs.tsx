@@ -163,36 +163,6 @@ const AboutUs = () => {
                 </CardContent>
               </Card>
             </Reveal>
-
-            <Reveal className="animate-fade-in">
-              <Card className="text-center p-6 hover-scale">
-                <CardContent className="pt-6">
-                  <div className="w-24 h-24 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users className="w-12 h-12 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">Sarah Johnson</h3>
-                  <p className="text-brand font-medium mb-3">Head of Product</p>
-                  <p className="text-muted-foreground text-sm">
-                    Leading product development with a focus on user experience and accessibility.
-                  </p>
-                </CardContent>
-              </Card>
-            </Reveal>
-
-            <Reveal className="animate-fade-in">
-              <Card className="text-center p-6 hover-scale">
-                <CardContent className="pt-6">
-                  <div className="w-24 h-24 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Lightbulb className="w-12 h-12 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">Dr. Michael Chen</h3>
-                  <p className="text-brand font-medium mb-3">Chief AI Officer</p>
-                  <p className="text-muted-foreground text-sm">
-                    AI researcher with expertise in natural language processing and machine learning.
-                  </p>
-                </CardContent>
-              </Card>
-            </Reveal>
           </div>
         </section>
 
