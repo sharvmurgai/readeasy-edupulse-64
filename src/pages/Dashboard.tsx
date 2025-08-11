@@ -8,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Upload } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/layout/Navbar";
+import InteractiveBackground from "@/components/ui/InteractiveBackground";
+import FloatingShapes from "@/components/ui/FloatingShapes";
 
 const Dashboard = () => {
   const [formData, setFormData] = useState({
@@ -52,8 +54,11 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
-      <Navbar />
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 relative">
+      <InteractiveBackground />
+      <FloatingShapes />
+      <div className="relative z-10">
+        <Navbar />
       
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-2xl mx-auto">
@@ -222,6 +227,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
         </div>
+      </div>
       </div>
     </div>
   );

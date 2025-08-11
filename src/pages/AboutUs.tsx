@@ -4,11 +4,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import Reveal from "@/components/landing/Reveal";
 import { Users, Target, Lightbulb, Award } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
+import InteractiveBackground from "@/components/ui/InteractiveBackground";
+import FloatingShapes from "@/components/ui/FloatingShapes";
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <div className="min-h-screen bg-background relative">
+      <InteractiveBackground />
+      <FloatingShapes />
+      <div className="relative z-10">
+        <Navbar />
       
       <main className="pt-20">
         {/* Hero Section */}
@@ -184,7 +189,8 @@ const AboutUs = () => {
         </section>
       </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };
