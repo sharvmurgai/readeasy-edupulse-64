@@ -14,7 +14,7 @@ const Header = () => {
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center justify-between">
         <a href="#" className="flex items-center gap-2 font-semibold tracking-tight">
-          <img src="/lovable-uploads/0f26c994-17fb-4b2f-bd82-597275724835.png" alt="ReadEasy" className="h-8 w-8" />
+          <img src="/lovable-uploads/8233bf9a-6f37-4969-b726-46839411f587.png" alt="ReadEasy" className="h-8 w-8" />
           ReadEasy
         </a>
         <nav className="hidden gap-6 text-sm md:flex">
