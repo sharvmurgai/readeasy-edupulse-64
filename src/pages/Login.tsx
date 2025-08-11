@@ -70,7 +70,7 @@ const Login = () => {
         <div className="w-full max-w-md space-y-6">
           {/* Logo */}
           <div className="flex items-center gap-2 mb-8">
-            <img src="/lovable-uploads/8233bf9a-6f37-4969-b726-46839411f587.png" alt="ReadEasy" className="h-8 w-8" />
+            <img src="/lovable-uploads/8233bf9a-6f37-4969-b726-46839411f587.png" alt="ReadEasy" className="h-10 w-10" />
           </div>
 
           {/* Title */}
