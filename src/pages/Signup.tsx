@@ -215,7 +215,7 @@ const Signup = () => {
       </div>
 
       {/* Right side - Gradient background with sample text */}
-      <div className="flex-1 bg-gradient-cta relative flex items-center justify-center p-8">
+      <div className="flex-1 bg-gradient-primary relative flex items-center justify-center p-8">
         <div className="text-center max-w-lg">
           {/* ReadEasy sample with photosynthesis text */}
           <div className="bg-background/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-white">
