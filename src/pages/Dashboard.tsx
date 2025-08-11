@@ -182,10 +182,28 @@ const Dashboard = () => {
                     <SelectContent className="z-50 bg-background border shadow-lg">
                       <SelectItem value="english">English</SelectItem>
                       <SelectItem value="spanish">Spanish</SelectItem>
-                      <SelectItem value="french">French</SelectItem>
-                      <SelectItem value="german">German</SelectItem>
-                      <SelectItem value="italian">Italian</SelectItem>
-                      <SelectItem value="portuguese">Portuguese</SelectItem>
+                      <SelectItem value="assamese">Assamese</SelectItem>
+                      <SelectItem value="bengali">Bengali</SelectItem>
+                      <SelectItem value="bodo">Bodo</SelectItem>
+                      <SelectItem value="dogri">Dogri</SelectItem>
+                      <SelectItem value="gujarati">Gujarati</SelectItem>
+                      <SelectItem value="hindi">Hindi</SelectItem>
+                      <SelectItem value="kannada">Kannada</SelectItem>
+                      <SelectItem value="kashmiri">Kashmiri</SelectItem>
+                      <SelectItem value="konkani">Konkani</SelectItem>
+                      <SelectItem value="maithili">Maithili</SelectItem>
+                      <SelectItem value="malayalam">Malayalam</SelectItem>
+                      <SelectItem value="manipuri">Manipuri</SelectItem>
+                      <SelectItem value="marathi">Marathi</SelectItem>
+                      <SelectItem value="nepali">Nepali</SelectItem>
+                      <SelectItem value="odia">Odia</SelectItem>
+                      <SelectItem value="punjabi">Punjabi</SelectItem>
+                      <SelectItem value="sanskrit">Sanskrit</SelectItem>
+                      <SelectItem value="santali">Santali</SelectItem>
+                      <SelectItem value="sindhi">Sindhi</SelectItem>
+                      <SelectItem value="tamil">Tamil</SelectItem>
+                      <SelectItem value="telugu">Telugu</SelectItem>
+                      <SelectItem value="urdu">Urdu</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
