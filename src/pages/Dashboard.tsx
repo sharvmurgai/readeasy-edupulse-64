@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Upload, ThumbsUp, ThumbsDown } from "lucide-react";
+import { Upload } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/layout/Navbar";
 import InteractiveBackground from "@/components/ui/InteractiveBackground";
@@ -20,8 +20,6 @@ const Dashboard = () => {
     file: null as File | null
   });
   const [isProcessing, setIsProcessing] = useState(false);
-  const [processedResult, setProcessedResult] = useState<string | null>(null);
-  const [showFeedback, setShowFeedback] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,9 +39,6 @@ const Dashboard = () => {
     // Simulate processing
     setTimeout(() => {
       setIsProcessing(false);
-      const mockSimplifiedText = "Plants make food from sunlight, water, and air. This helps them grow and gives us oxygen to breathe.";
-      setProcessedResult(mockSimplifiedText);
-      setShowFeedback(true);
       toast({
         title: "Processing Complete!",
         description: "Your text has been successfully simplified."
@@ -56,23 +51,6 @@ const Dashboard = () => {
     if (file) {
       setFormData(prev => ({ ...prev, file }));
     }
-  };
-
-  const handleFeedback = (type: 'good' | 'bad') => {
-    toast({
-      title: "Feedback Submitted",
-      description: `Thank you for your ${type} feedback! This helps us improve.`
-    });
-    setShowFeedback(false);
-    // Reset form for next use
-    setFormData({
-      text: "",
-      title: "",
-      targetAge: "",
-      language: "english",
-      file: null
-    });
-    setProcessedResult(null);
   };
 
   return (
@@ -244,57 +222,14 @@ const Dashboard = () => {
                   >
                     {isProcessing ? "Processing..." : "Process"}
                   </Button>
-                 </div>
-               </form>
-             </CardContent>
-           </Card>
-
-           {/* Results and Feedback Section */}
-           {processedResult && (
-             <Card className="shadow-lg border-0 bg-card/80 backdrop-blur mt-6">
-               <CardHeader>
-                 <CardTitle className="text-xl">Simplified Text</CardTitle>
-                 <CardDescription>
-                   Here's your simplified text. Please provide feedback below.
-                 </CardDescription>
-               </CardHeader>
-               <CardContent>
-                 <div className="space-y-4">
-                   <div className="bg-muted/50 p-4 rounded-lg">
-                     <p className="text-foreground leading-relaxed">{processedResult}</p>
-                   </div>
-                   
-                   {showFeedback && (
-                     <div className="border-t pt-4">
-                       <h4 className="font-semibold text-foreground mb-3">How was this simplification?</h4>
-                       <div className="flex gap-3">
-                         <Button
-                           onClick={() => handleFeedback('good')}
-                           variant="outline"
-                           className="flex items-center gap-2 hover:bg-green-50 hover:border-green-300 hover:text-green-700"
-                         >
-                           <ThumbsUp className="h-4 w-4" />
-                           Good
-                         </Button>
-                         <Button
-                           onClick={() => handleFeedback('bad')}
-                           variant="outline"
-                           className="flex items-center gap-2 hover:bg-red-50 hover:border-red-300 hover:text-red-700"
-                         >
-                           <ThumbsDown className="h-4 w-4" />
-                           Bad
-                         </Button>
-                       </div>
-                     </div>
-                   )}
-                 </div>
-               </CardContent>
-             </Card>
-           )}
-         </div>
-       </div>
-       </div>
-     </div>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+      </div>
+    </div>
   );
 };
 
