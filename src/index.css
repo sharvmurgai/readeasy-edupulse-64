@@ -8,34 +8,34 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* ReadEasy color scheme - warm beige background with blue accents */
-    --background: 39 44% 92%;  /* Warm beige background matching image */
-    --foreground: 215 25% 27%;  /* Dark gray-blue for text */
+    /* Premium light color scheme - clean white with vibrant blue accents */
+    --background: 0 0% 100%;  /* Pure white background */
+    --foreground: 222 84% 5%;  /* Rich dark text */
 
     --card: 0 0% 100%;  /* White cards */
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 222 84% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover-foreground: 222 84% 5%;
 
-    --primary: 217 91% 60%;  /* ReadEasy blue matching image #4285F4 */
+    --primary: 221 83% 53%;  /* Vibrant blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 39 44% 88%;  /* Light beige for secondary elements */
-    --secondary-foreground: 215 25% 27%;
+    --secondary: 210 40% 98%;  /* Light gray */
+    --secondary-foreground: 222 84% 5%;
 
-    --muted: 39 44% 88%;
-    --muted-foreground: 215 15% 50%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 217 91% 60%;
+    --accent: 221 83% 53%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 39 30% 82%;  /* Soft beige borders */
+    --border: 214 32% 91%;  /* Subtle gray borders */
     --input: 0 0% 100%;  /* White input backgrounds */
-    --ring: 217 91% 60%;
+    --ring: 221 83% 53%;
 
     --radius: 0.5rem;
 
@@ -48,9 +48,9 @@ All colors MUST be HSL.
     --sidebar-border: 39 30% 82%;
     --sidebar-ring: 217 91% 60%;
 
-    /* Brand tokens (ReadEasy blue theme) */
-    --brand: 217 91% 60%;  /* ReadEasy blue matching image */
-    --brand-strong: 217 91% 55%;  /* Darker blue for hovers */
+    /* Brand tokens (Premium blue theme) */
+    --brand: 221 83% 53%;  /* Vibrant blue */
+    --brand-strong: 221 83% 45%;  /* Darker blue for hovers */
     --brand-foreground: 0 0% 100%;
 
     /* Shadows & gradients */
