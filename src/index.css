@@ -8,56 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Luxurious teal & rose gold aesthetic */
-    --background: 210 20% 98%;  /* Soft pearl white #F8F9FA */
-    --foreground: 200 25% 15%;  /* Rich charcoal #1E2832 */
+    /* Elegant blue spectrum aesthetic */
+    --background: 220 35% 98%;  /* Soft blue-white #F8F9FC */
+    --foreground: 225 30% 18%;  /* Deep navy #1A2332 */
 
-    --card: 210 30% 97%;  /* Cool white cards #F6F7F9 */
-    --card-foreground: 200 25% 15%;
+    --card: 215 40% 96%;  /* Light blue-white cards #F4F6FB */
+    --card-foreground: 225 30% 18%;
 
-    --popover: 210 30% 97%;
-    --popover-foreground: 200 25% 15%;
+    --popover: 215 40% 96%;
+    --popover-foreground: 225 30% 18%;
 
-    --primary: 185 50% 35%;  /* Deep teal #2D6B5F */
-    --primary-foreground: 210 20% 98%;
+    --primary: 215 85% 55%;  /* Vibrant blue #2563EB */
+    --primary-foreground: 220 35% 98%;
 
-    --secondary: 210 15% 92%;  /* Cool gray #E8EAED */
-    --secondary-foreground: 200 25% 20%;
+    --secondary: 215 25% 88%;  /* Soft blue-gray #D1D9E6 */
+    --secondary-foreground: 225 30% 22%;
 
-    --muted: 210 15% 92%;
-    --muted-foreground: 200 15% 50%;
+    --muted: 215 25% 88%;
+    --muted-foreground: 225 20% 45%;
 
-    --accent: 15 70% 70%;  /* Rose gold #E6A98A */
-    --accent-foreground: 200 25% 15%;
+    --accent: 235 60% 70%;  /* Soft periwinkle #8B9FE8 */
+    --accent-foreground: 225 30% 18%;
 
-    --destructive: 0 70% 60%;  /* Elegant red #E85A4F */
-    --destructive-foreground: 210 20% 98%;
+    --destructive: 0 75% 58%;  /* Clean red #E63946 */
+    --destructive-foreground: 220 35% 98%;
 
-    --border: 210 12% 88%;  /* Cool light gray #DCDFE3 */
-    --input: 210 30% 97%;  /* Cool white inputs */
-    --ring: 185 50% 35%;
+    --border: 215 20% 85%;  /* Light blue-gray #C8D1DC */
+    --input: 215 40% 96%;  /* Light blue-white inputs */
+    --ring: 215 85% 55%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 210 20% 98%;
-    --sidebar-foreground: 200 25% 15%;
-    --sidebar-primary: 185 50% 35%;
-    --sidebar-primary-foreground: 210 20% 98%;
-    --sidebar-accent: 210 15% 92%;
-    --sidebar-accent-foreground: 200 25% 15%;
-    --sidebar-border: 210 12% 88%;
-    --sidebar-ring: 185 50% 35%;
+    --sidebar-background: 220 35% 98%;
+    --sidebar-foreground: 225 30% 18%;
+    --sidebar-primary: 215 85% 55%;
+    --sidebar-primary-foreground: 220 35% 98%;
+    --sidebar-accent: 215 25% 88%;
+    --sidebar-accent-foreground: 225 30% 18%;
+    --sidebar-border: 215 20% 85%;
+    --sidebar-ring: 215 85% 55%;
 
-    /* Brand tokens - luxurious teal & rose gold */
-    --brand: 185 50% 35%;  /* Deep teal #2D6B5F */
-    --brand-strong: 185 55% 30%;  /* Deeper teal */
-    --brand-foreground: 210 20% 98%;
-    --brand-accent: 15 70% 70%;  /* Rose gold #E6A98A */
+    /* Brand tokens - sophisticated blue palette */
+    --brand: 215 85% 55%;  /* Vibrant blue #2563EB */
+    --brand-strong: 215 90% 48%;  /* Deeper blue */
+    --brand-foreground: 220 35% 98%;
+    --brand-accent: 235 60% 70%;  /* Periwinkle #8B9FE8 */
+    --brand-light: 210 100% 92%;  /* Very light blue #E0F2FE */
 
-    /* Luxurious shadows & gradients */
-    --shadow-elegant: 0 12px 45px -18px hsl(185 50% 35% / 0.2);
-    --shadow-glow: 0 0 60px hsl(15 70% 70% / 0.25);
-    --shadow-soft: 0 4px 25px -10px hsl(200 25% 15% / 0.1);
+    /* Elegant blue shadows & gradients */
+    --shadow-elegant: 0 12px 40px -15px hsl(215 85% 55% / 0.25);
+    --shadow-glow: 0 0 50px hsl(235 60% 70% / 0.3);
+    --shadow-soft: 0 4px 20px -8px hsl(225 30% 18% / 0.08);
   }
 
   .dark {
@@ -122,7 +123,7 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Luxurious gradient utilities */
+  /* Beautiful blue gradient utilities */
   .bg-gradient-primary {
     background-image: linear-gradient(135deg, hsl(var(--brand)) 0%, hsl(var(--brand-strong)) 100%);
   }
@@ -132,11 +133,11 @@ All colors MUST be HSL.
   }
 
   .bg-gradient-warm {
-    background-image: linear-gradient(135deg, hsl(var(--brand-accent) / 0.08) 0%, hsl(var(--background)) 50%, hsl(var(--brand) / 0.03) 100%);
+    background-image: linear-gradient(135deg, hsl(var(--brand-light)) 0%, hsl(var(--background)) 50%, hsl(var(--brand-accent) / 0.1) 100%);
   }
 
-  .bg-gradient-luxury {
-    background-image: linear-gradient(135deg, hsl(var(--brand)) 0%, hsl(185 55% 40%) 50%, hsl(var(--brand-accent)) 100%);
+  .bg-gradient-ocean {
+    background-image: linear-gradient(135deg, hsl(215 85% 55%) 0%, hsl(210 80% 60%) 50%, hsl(235 60% 70%) 100%);
   }
 
   .shadow-elevated {
