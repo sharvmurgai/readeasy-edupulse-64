@@ -9,48 +9,48 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* ReadEasy color scheme - warm beige background with blue accents */
-    --background: 45 33% 96%;  /* Warm cream background #F5F2E8 */
-    --foreground: 219 100% 20%;  /* Deep navy blue for text */
+    --background: 39 44% 92%;  /* Warm beige background matching image */
+    --foreground: 215 25% 27%;  /* Dark gray-blue for text */
 
     --card: 0 0% 100%;  /* White cards */
-    --card-foreground: 219 100% 20%;
+    --card-foreground: 215 25% 27%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 219 100% 20%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 232 63% 66%;  /* ReadEasy button blue #7B8CDB */
+    --primary: 217 91% 60%;  /* ReadEasy blue matching image #4285F4 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 25% 92%;  /* Light beige for secondary elements */
-    --secondary-foreground: 219 100% 20%;
+    --secondary: 39 44% 88%;  /* Light beige for secondary elements */
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 45 25% 92%;
-    --muted-foreground: 219 50% 45%;
+    --muted: 39 44% 88%;
+    --muted-foreground: 215 15% 50%;
 
-    --accent: 232 63% 66%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 45 20% 85%;  /* Soft beige borders */
+    --border: 39 30% 82%;  /* Soft beige borders */
     --input: 0 0% 100%;  /* White input backgrounds */
-    --ring: 232 63% 66%;
+    --ring: 217 91% 60%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 45 33% 96%;
-    --sidebar-foreground: 219 100% 20%;
-    --sidebar-primary: 232 63% 66%;
+    --sidebar-background: 39 44% 92%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 45 25% 92%;
-    --sidebar-accent-foreground: 219 100% 20%;
-    --sidebar-border: 45 20% 85%;
-    --sidebar-ring: 232 63% 66%;
+    --sidebar-accent: 39 44% 88%;
+    --sidebar-accent-foreground: 215 25% 27%;
+    --sidebar-border: 39 30% 82%;
+    --sidebar-ring: 217 91% 60%;
 
     /* Brand tokens (ReadEasy blue theme) */
-    --brand: 232 63% 66%;  /* ReadEasy blue #7B8CDB */
-    --brand-strong: 232 63% 58%;  /* Darker blue for hovers */
+    --brand: 217 91% 60%;  /* ReadEasy blue matching image */
+    --brand-strong: 217 91% 55%;  /* Darker blue for hovers */
     --brand-foreground: 0 0% 100%;
 
     /* Shadows & gradients */
