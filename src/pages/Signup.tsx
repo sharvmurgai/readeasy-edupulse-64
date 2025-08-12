@@ -217,28 +217,48 @@ const Signup = () => {
         </div>
       </div>
 
-      {/* Right side - Gradient background with sample text */}
-      <div className="flex-1 bg-gradient-primary relative flex items-center justify-center p-8">
-        <div className="text-center max-w-lg">
-          {/* ReadEasy sample with photosynthesis text */}
-          <div className="bg-background/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-white">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold">ReadEasy Sample</h3>
-              <ArrowUp className="w-5 h-5 text-white/70" />
+      {/* Right side - Gradient background with ReadEasy logo and feedback preview */}
+      <div className="flex-1 bg-gradient-primary relative flex flex-col items-center justify-center p-8">
+        {/* Logo Section */}
+        <div className="text-center mb-8">
+          <img src="/lovable-uploads/8233bf9a-6f37-4969-b726-46839411f587.png" alt="ReadEasy" className="h-20 w-20 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-white mb-2">ReadEasy</h2>
+          <p className="text-white/80">Your feedback history</p>
+        </div>
+
+        {/* Sample Feedback Preview */}
+        <div className="w-full max-w-md space-y-4">
+          <div className="bg-background/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-white">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-semibold">Recent Feedback</h3>
+              <div className="flex items-center gap-1">
+                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                <span className="text-xs">Good</span>
+              </div>
             </div>
-            <div className="text-left space-y-3 text-sm leading-relaxed">
-              <p>
-                "Photosynthesis is the process by which plants use sunlight, water, and carbon dioxide to create oxygen and energy in the form of sugar."
-              </p>
-              <p className="text-white/80">
-                This complex biochemical process occurs in the chloroplasts of plant cells and is essential for life on Earth, as it produces the oxygen we breathe.
-              </p>
-            </div>
-            <div className="flex items-center mt-4 text-xs text-white/60">
-              <span>Ask ReadEasy to simplify this text</span>
-              <ArrowUp className="w-3 h-3 ml-2" />
-            </div>
+            <p className="text-xs text-white/80">
+              "Plants make food from sunlight..."
+            </p>
           </div>
+          
+          <div className="bg-background/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-white">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-semibold">Previous Feedback</h3>
+              <div className="flex items-center gap-1">
+                <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                <span className="text-xs">Bad</span>
+              </div>
+            </div>
+            <p className="text-xs text-white/80">
+              "Atoms are made of tiny parts..."
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 text-center">
+          <Link to="/user-feedback" className="text-white/80 text-xs underline hover:text-white">
+            View all feedback →
+          </Link>
         </div>
       </div>
       </div>
