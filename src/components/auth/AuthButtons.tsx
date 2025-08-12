@@ -62,11 +62,11 @@ const AuthButtons = () => {
         Sign Up
       </Button>
       <Button
-        variant="outline"
+        variant="secondary"
         size="lg"
         onClick={handleGoogleSignUp}
         disabled={isLoading}
-        className="min-w-[160px]"
+        className="min-w-[160px] bg-white text-foreground border hover:bg-gray-50"
       >
         <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
           <path

@@ -8,34 +8,34 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Premium light color scheme - clean white with vibrant blue accents */
-    --background: 0 0% 100%;  /* Pure white background */
-    --foreground: 222 84% 5%;  /* Rich dark text */
+    /* ReadEasy color scheme - warm beige background with blue accents */
+    --background: 39 44% 92%;  /* Warm beige background matching image */
+    --foreground: 215 25% 27%;  /* Dark gray-blue for text */
 
     --card: 0 0% 100%;  /* White cards */
-    --card-foreground: 222 84% 5%;
+    --card-foreground: 215 25% 27%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 84% 5%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 221 83% 53%;  /* Vibrant blue */
+    --primary: 217 91% 60%;  /* ReadEasy blue matching image #4285F4 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 98%;  /* Light gray */
-    --secondary-foreground: 222 84% 5%;
+    --secondary: 39 44% 88%;  /* Light beige for secondary elements */
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 210 40% 98%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 39 44% 88%;
+    --muted-foreground: 215 15% 50%;
 
-    --accent: 221 83% 53%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;  /* Subtle gray borders */
+    --border: 39 30% 82%;  /* Soft beige borders */
     --input: 0 0% 100%;  /* White input backgrounds */
-    --ring: 221 83% 53%;
+    --ring: 217 91% 60%;
 
     --radius: 0.5rem;
 
@@ -48,9 +48,9 @@ All colors MUST be HSL.
     --sidebar-border: 39 30% 82%;
     --sidebar-ring: 217 91% 60%;
 
-    /* Brand tokens (Premium blue theme) */
-    --brand: 221 83% 53%;  /* Vibrant blue */
-    --brand-strong: 221 83% 45%;  /* Darker blue for hovers */
+    /* Brand tokens (ReadEasy blue theme) */
+    --brand: 217 91% 60%;  /* ReadEasy blue matching image */
+    --brand-strong: 217 91% 55%;  /* Darker blue for hovers */
     --brand-foreground: 0 0% 100%;
 
     /* Shadows & gradients */
@@ -59,48 +59,48 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Light theme override - ensuring no dark backgrounds */
-    --background: 0 0% 100%;  /* Pure white background */
-    --foreground: 222 84% 5%;  /* Rich dark text */
+    /* Dark mode with navy background and ReadEasy blue accents */
+    --background: 219 100% 8%;  /* Dark navy background */
+    --foreground: 45 33% 96%;  /* Light text */
 
-    --card: 0 0% 100%;  /* White cards */
-    --card-foreground: 222 84% 5%;
+    --card: 219 80% 12%;  /* Darker navy cards */
+    --card-foreground: 45 33% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 84% 5%;
+    --popover: 219 80% 12%;
+    --popover-foreground: 45 33% 96%;
 
-    --primary: 221 83% 53%;  /* Vibrant blue */
-    --primary-foreground: 0 0% 100%;
+    --primary: 232 63% 70%;  /* Brighter blue in dark mode */
+    --primary-foreground: 219 100% 8%;
 
-    --secondary: 210 40% 98%;
-    --secondary-foreground: 222 84% 5%;
+    --secondary: 219 60% 16%;
+    --secondary-foreground: 45 33% 96%;
 
-    --muted: 210 40% 98%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 219 60% 16%;
+    --muted-foreground: 45 20% 70%;
 
-    --accent: 221 83% 53%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 232 63% 70%;
+    --accent-foreground: 219 100% 8%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 45 33% 96%;
 
-    --border: 214 32% 91%;
-    --input: 0 0% 100%;
-    --ring: 221 83% 53%;
+    --border: 219 60% 16%;
+    --input: 219 60% 16%;
+    --ring: 232 63% 70%;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 84% 5%;
-    --sidebar-primary: 221 83% 53%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 40% 98%;
-    --sidebar-accent-foreground: 222 84% 5%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 221 83% 53%;
+    --sidebar-background: 219 100% 8%;
+    --sidebar-foreground: 45 33% 96%;
+    --sidebar-primary: 232 63% 70%;
+    --sidebar-primary-foreground: 219 100% 8%;
+    --sidebar-accent: 219 60% 16%;
+    --sidebar-accent-foreground: 45 33% 96%;
+    --sidebar-border: 219 60% 16%;
+    --sidebar-ring: 232 63% 70%;
 
-    /* Brand tokens in light */
-    --brand: 221 83% 53%;
-    --brand-strong: 221 83% 45%;
-    --brand-foreground: 0 0% 100%;
+    /* Brand tokens in dark */
+    --brand: 232 63% 70%;
+    --brand-strong: 232 63% 62%;
+    --brand-foreground: 219 100% 8%;
   }
 }
 
