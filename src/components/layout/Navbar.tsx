@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Home, User, Info, LayoutDashboard, LogIn, UserPlus, MessageSquare, FileText, Settings, LogOut } from "lucide-react";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -60,9 +59,8 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right side - Auth & Theme */}
+        {/* Right side - Auth */}
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           
           {isLoggedIn ? (
             /* User Profile Dropdown */

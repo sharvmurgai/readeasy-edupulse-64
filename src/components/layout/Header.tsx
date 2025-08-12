@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const Header = () => {
   const { toast } = useToast();
@@ -24,7 +23,6 @@ const Header = () => {
           <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">Testimonials</a>
         </nav>
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <Button variant="hero" size="sm" onClick={onTry}>Try ReadEasy</Button>
         </div>
       </div>
