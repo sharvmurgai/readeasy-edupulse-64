@@ -1,27 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { signInWithGoogle } from "@/lib/supabase";
+import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthButtons = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleGoogleSignUp = async () => {
     setIsLoading(true);
     try {
-      const { error } = await signInWithGoogle();
-      if (error) {
-        toast({
-          title: "Error",
-          description: error.message,
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
+      // Google OAuth will be handled by Flask backend
       toast({
-        title: "Error",
-        description: "An unexpected error occurred",
+        title: "Google OAuth",
+        description: "Google OAuth not yet implemented with Flask backend",
         variant: "destructive",
       });
     } finally {
@@ -30,17 +24,11 @@ const AuthButtons = () => {
   };
 
   const handleLogin = () => {
-    toast({
-      title: "Login",
-      description: "Login page coming soon.",
-    });
+    navigate("/login");
   };
 
   const handleSignup = () => {
-    toast({
-      title: "Sign Up",
-      description: "Sign up page coming soon.",
-    });
+    navigate("/signup");
   };
 
   return (

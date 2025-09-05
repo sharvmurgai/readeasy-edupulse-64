@@ -5,8 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Upload } from "lucide-react";
+import { Upload, ThumbsUp, ThumbsDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { api } from "@/lib/api";
 import Navbar from "@/components/layout/Navbar";
 import InteractiveBackground from "@/components/ui/InteractiveBackground";
 import FloatingShapes from "@/components/ui/FloatingShapes";
@@ -20,6 +21,9 @@ const Dashboard = () => {
     file: null as File | null
   });
   const [isProcessing, setIsProcessing] = useState(false);
+  const [simplifiedText, setSimplifiedText] = useState("");
+  const [showResult, setShowResult] = useState(false);
+  const [currentResponseId, setCurrentResponseId] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,15 +39,53 @@ const Dashboard = () => {
     }
 
     setIsProcessing(true);
+    setShowResult(false);
     
-    // Simulate processing
-    setTimeout(() => {
-      setIsProcessing(false);
+    try {
+      // Use the Flask API to simplify text
+      const textToSimplify = formData.text || "Text from uploaded image (OCR processing needed)";
+      const response = await api.simplifyText(textToSimplify);
+      
+      if (response.success && response.data) {
+        setSimplifiedText(response.data.simplified);
+        setCurrentResponseId(Date.now().toString()); // Generate a simple ID
+        setShowResult(true);
+        toast({
+          title: "Processing Complete!",
+          description: "Your text has been successfully simplified."
+        });
+      } else {
+        throw new Error(response.error || "Failed to simplify text");
+      }
+    } catch (error) {
       toast({
-        title: "Processing Complete!",
-        description: "Your text has been successfully simplified."
+        title: "Processing Error",
+        description: error instanceof Error ? error.message : "An error occurred while processing your text",
+        variant: "destructive"
       });
-    }, 2000);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleFeedback = async (isPositive: boolean) => {
+    try {
+      const response = await api.submitFeedback(currentResponseId, isPositive);
+      if (response.success) {
+        toast({
+          title: "Thank you!",
+          description: `Your ${isPositive ? 'positive' : 'negative'} feedback has been recorded.`
+        });
+      } else {
+        throw new Error(response.error || "Failed to submit feedback");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to submit feedback. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -226,6 +268,45 @@ const Dashboard = () => {
               </form>
             </CardContent>
           </Card>
+
+          {/* Results Section */}
+          {showResult && (
+            <Card className="shadow-lg border-0 bg-card/80 backdrop-blur mt-6">
+              <CardHeader>
+                <CardTitle className="text-xl text-center">Simplified Text</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="bg-muted/30 rounded-lg p-4">
+                  <p className="text-foreground leading-relaxed">{simplifiedText}</p>
+                </div>
+                
+                {/* Feedback Buttons */}
+                <div className="flex items-center justify-center gap-4 pt-4 border-t">
+                  <p className="text-sm text-muted-foreground">Was this helpful?</p>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleFeedback(true)}
+                      className="flex items-center gap-2 hover:bg-green-50 hover:border-green-200"
+                    >
+                      <ThumbsUp className="w-4 h-4" />
+                      Good
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleFeedback(false)}
+                      className="flex items-center gap-2 hover:bg-red-50 hover:border-red-200"
+                    >
+                      <ThumbsDown className="w-4 h-4" />
+                      Bad
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </div>
       </div>

@@ -3,13 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { signInWithGoogle, signUp } from "@/lib/supabase";
-import { Link } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import { ArrowUp } from "lucide-react";
 
 const Signup = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
+  const { signUp } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -18,18 +20,10 @@ const Signup = () => {
   const handleGoogleSignUp = async () => {
     setIsLoading(true);
     try {
-      const { error } = await signInWithGoogle();
-      if (error) {
-        toast({
-          title: "Error",
-          description: error.message,
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
+      // Google OAuth will be handled by Flask backend
       toast({
-        title: "Error",
-        description: "An unexpected error occurred",
+        title: "Google OAuth",
+        description: "Google OAuth not yet implemented with Flask backend",
         variant: "destructive",
       });
     } finally {
@@ -64,14 +58,15 @@ const Signup = () => {
       if (error) {
         toast({
           title: "Error",
-          description: error.message,
+          description: error,
           variant: "destructive",
         });
       } else {
         toast({
           title: "Success",
-          description: "Account created successfully! Please check your email to verify your account.",
+          description: "Account created successfully!",
         });
+        navigate("/dashboard");
       }
     } catch (error) {
       toast({
