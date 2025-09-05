@@ -1,20 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import AnimatedTextInput from "@/components/ui/AnimatedTextInput";
 import Navbar from "@/components/layout/Navbar";
 
 const Login = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
-  const { signIn } = useAuth();
+  const location = useLocation();
+  const { user, signIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      const from = location.state?.from?.pathname || '/dashboard';
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, location]);
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
@@ -46,7 +55,9 @@ const Login = () => {
           title: "Success",
           description: "Successfully signed in!",
         });
-        navigate("/dashboard");
+        // Navigate to the page they were trying to access, or dashboard as default
+        const from = location.state?.from?.pathname || '/dashboard';
+        navigate(from, { replace: true });
       }
     } catch (error) {
       toast({

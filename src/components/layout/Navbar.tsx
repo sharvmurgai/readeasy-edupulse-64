@@ -10,13 +10,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Mock auth state - replace with real auth
-  const [user] = useState({ name: "John Doe", email: "john@example.com", avatar: "" });
+  const { toast } = useToast();
+  const { user, signOut } = useAuth();
 
   const navItems = [
     { path: "/", label: "Home", icon: Home },
@@ -28,6 +29,23 @@ const Navbar = () => {
     { path: "/login", label: "Login", icon: LogIn },
     { path: "/signup", label: "Sign Up", icon: UserPlus },
   ];
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      toast({
+        title: "Logged out",
+        description: "You have been successfully logged out.",
+      });
+      navigate("/");
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to log out. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -62,15 +80,15 @@ const Navbar = () => {
         {/* Right side - Auth */}
         <div className="flex items-center gap-2">
           
-          {isLoggedIn ? (
+          {user ? (
             /* User Profile Dropdown */
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-9 w-9 rounded-full">
                   <Avatar className="h-9 w-9">
-                    <AvatarImage src={user.avatar} alt={user.name} />
+                    <AvatarImage src="" alt={user.email} />
                     <AvatarFallback className="bg-primary/10">
-                      {user.name.split(' ').map(n => n[0]).join('')}
+                      {user.email.charAt(0).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
                 </Button>
@@ -78,7 +96,7 @@ const Navbar = () => {
               <DropdownMenuContent className="w-80" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">{user.name}</p>
+                    <p className="text-sm font-medium leading-none">{user.name || 'User'}</p>
                     <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
                   </div>
                 </DropdownMenuLabel>
@@ -88,7 +106,10 @@ const Navbar = () => {
                 <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider">
                   My Activity
                 </DropdownMenuLabel>
-                <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem 
+                  className="cursor-pointer"
+                  onClick={() => navigate("/user-feedback")}
+                >
                   <MessageSquare className="mr-2 h-4 w-4" />
                   <div className="flex flex-col">
                     <span>My Feedback</span>
@@ -112,7 +133,7 @@ const Navbar = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   className="cursor-pointer text-destructive focus:text-destructive"
-                  onClick={() => setIsLoggedIn(false)}
+                  onClick={handleLogout}
                 >
                   <LogOut className="mr-2 h-4 w-4" />
                   Log out
