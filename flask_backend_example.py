@@ -143,19 +143,32 @@ def get_current_user():
 @app.route('/api/simplify', methods=['POST'])
 @jwt_required()
 def simplify_text():
-    data = request.get_json()
-    text = data.get('text')
-    
-    if not text:
-        return jsonify({'error': 'Text is required'}), 400
-    
-    # TODO: Integrate with your AI model for text simplification
-    # For now, this is a mock response
-    simplified = f"This is a simplified version of: {text[:100]}..."
-    
-    return jsonify({
-        'simplified': simplified
-    })
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({'error': 'No data provided'}), 422
+            
+        text = data.get('text')
+        title = data.get('title', '')
+        target_age = data.get('targetAge', '')
+        language = data.get('language', 'english')
+        
+        if not text:
+            return jsonify({'error': 'Text is required'}), 422
+        
+        # TODO: Integrate with your AI model for text simplification
+        # For now, this is a mock response that includes the additional parameters
+        simplified = f"Simplified for age {target_age or 'general'} in {language}: {text[:100]}..."
+        if title:
+            simplified = f"Title: {title}\n\n{simplified}"
+        
+        return jsonify({
+            'simplified': simplified
+        })
+        
+    except Exception as e:
+        print(f"Error in simplify_text: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 # Feedback endpoint
 @app.route('/api/feedback', methods=['POST'])

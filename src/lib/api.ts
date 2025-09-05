@@ -113,10 +113,18 @@ class ApiClient {
     return this.request<User>('/auth/me');
   }
 
-  async simplifyText(text: string): Promise<ApiResponse<{ simplified: string }>> {
+  async simplifyText(
+    text: string, 
+    options?: { title?: string; targetAge?: string; language?: string }
+  ): Promise<ApiResponse<{ simplified: string }>> {
     return this.request<{ simplified: string }>('/simplify', {
       method: 'POST',
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({ 
+        text, 
+        title: options?.title,
+        targetAge: options?.targetAge,
+        language: options?.language 
+      }),
     });
   }
 
