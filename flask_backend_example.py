@@ -10,11 +10,11 @@ import os
 from datetime import timedelta
 
 app = Flask(__name__)
-app.config['JWT_SECRET_KEY'] = 'your-secret-key-change-this'  # Change this in production
+app.config['JWT_SECRET_KEY'] = 'your-secret-key-change-this-in-production'  
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=7)
 
 jwt = JWTManager(app)
-CORS(app)  # Enable CORS for all domains - configure properly for production
+CORS(app, origins=["http://localhost:3000", "http://localhost:5173"])  # Configure for your frontend port
 
 # Database initialization
 def init_db():

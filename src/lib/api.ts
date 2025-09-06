@@ -61,6 +61,13 @@ class ApiClient {
         data,
       };
     } catch (error) {
+      console.error('API Request failed:', error);
+      if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+        return {
+          success: false,
+          error: 'Unable to connect to server. Please ensure the Flask backend is running on localhost:5000',
+        };
+      }
       return {
         success: false,
         error: error instanceof Error ? error.message : 'Unknown error',

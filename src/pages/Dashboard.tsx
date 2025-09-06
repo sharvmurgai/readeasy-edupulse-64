@@ -70,9 +70,20 @@ const Dashboard = () => {
         throw new Error(response.error || "Failed to simplify text");
       }
     } catch (error) {
+      console.error('Simplification error:', error);
+      let errorMessage = "An error occurred while processing your text";
+      
+      if (error instanceof Error) {
+        if (error.message.includes('Unable to connect to server')) {
+          errorMessage = "Cannot connect to backend server. Please make sure the Flask server is running on localhost:5000. Run 'python start_backend.py' to start the server.";
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      
       toast({
-        title: "Processing Error",
-        description: error instanceof Error ? error.message : "An error occurred while processing your text",
+        title: "Processing Error", 
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
