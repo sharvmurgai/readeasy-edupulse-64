@@ -44,6 +44,14 @@ const Dashboard = () => {
     try {
       // Use the Flask API to simplify text
       const textToSimplify = formData.text || "Text from uploaded image (OCR processing needed)";
+      
+      console.log('Sending request with:', {
+        text: textToSimplify,
+        title: formData.title,
+        targetAge: formData.targetAge,
+        language: formData.language
+      });
+      
       const response = await api.simplifyText(textToSimplify, {
         title: formData.title,
         targetAge: formData.targetAge,

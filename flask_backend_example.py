@@ -144,8 +144,12 @@ def get_current_user():
 @jwt_required()
 def simplify_text():
     try:
+        print("Received simplify request")
         data = request.get_json()
+        print(f"Request data: {data}")
+        
         if not data:
+            print("No data provided")
             return jsonify({'error': 'No data provided'}), 422
             
         text = data.get('text')
@@ -153,7 +157,10 @@ def simplify_text():
         target_age = data.get('targetAge', '')
         language = data.get('language', 'english')
         
+        print(f"Parsed - text: {text}, title: {title}, target_age: {target_age}, language: {language}")
+        
         if not text:
+            print("Text is required but not provided")
             return jsonify({'error': 'Text is required'}), 422
         
         # TODO: Integrate with your AI model for text simplification
